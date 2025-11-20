@@ -1,11 +1,9 @@
+/* Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 
-  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
-*/
-
+/* Dark Gradient Grid Background */
 .main {
   width: 100vw;
   min-height: 100vh;
@@ -14,10 +12,11 @@
   justify-content: center;
   padding: 120px 24px 160px 24px;
   pointer-events: none;
+  background-color: #0f0f13; /* Dark base */
 }
 
 .main:before {
-  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, #0f0f13 100%);
   position: absolute;
   content: "";
   z-index: 2;
@@ -34,8 +33,8 @@
   width: 100%;
   height: 100%;
   top: 0;
-  opacity: 0.4;
-  filter: invert(1);
+  opacity: 0.2;
+  filter: invert(0.8) brightness(0.6);
 }
 
 .gradient {
@@ -43,24 +42,21 @@
   z-index: 3;
   width: 100%;
   max-width: 640px;
-  background-image: radial-gradient(
-      at 27% 37%,
-      hsla(215, 98%, 61%, 1) 0px,
-      transparent 0%
-    ),
-    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
-    radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
-    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
-    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
-    radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
-    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
   position: absolute;
   content: "";
   width: 100%;
   height: 100%;
-  filter: blur(100px) saturate(150%);
+  filter: blur(120px) saturate(200%);
   top: 80px;
-  opacity: 0.15;
+  opacity: 0.2;
+  background-image: 
+    radial-gradient(at 27% 37%, hsla(200, 80%, 60%, 1) 0px, transparent 50%),
+    radial-gradient(at 97% 21%, hsla(280, 80%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, hsla(340, 90%, 65%, 1) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, hsla(150, 90%, 55%, 1) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, hsla(40, 70%, 65%, 1) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, hsla(220, 70%, 65%, 1) 0px, transparent 50%),
+    radial-gradient(at 79% 53%, hsla(330, 80%, 70%, 1) 0px, transparent 50%);
 }
 
 @media screen and (max-width: 640px) {
@@ -69,38 +65,38 @@
   }
 }
 
-/* Tailwind Styles */
+/* Tailwind Dark Styles */
 
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6 text-white;
 }
 
 .black_btn {
-  @apply rounded-full border border-black bg-black py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-black;
+  @apply rounded-full border border-gray-700 bg-gray-900 py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-black;
 }
 
 .head_text {
-  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl text-center;
+  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-white sm:text-6xl text-center;
 }
 
 .orange_gradient {
-  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 bg-clip-text text-transparent;
 }
 
 .desc {
-  @apply mt-5 text-lg text-gray-600 sm:text-xl text-center max-w-2xl;
+  @apply mt-5 text-lg text-gray-300 sm:text-xl text-center max-w-2xl;
 }
 
 .url_input {
-  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 pl-10 pr-12 text-sm shadow-lg font-satoshi font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply block w-full rounded-md border border-gray-700 bg-gray-900 py-2.5 pl-10 pr-12 text-sm text-white shadow-lg font-satoshi font-medium focus:border-white focus:outline-none focus:ring-0;
 }
 
 .submit_btn {
-  @apply hover:border-gray-700 hover:text-gray-700 absolute inset-y-0 right-0 my-1.5 mr-1.5 flex w-10 items-center justify-center rounded border border-gray-200 font-sans text-sm font-medium text-gray-400;
+  @apply hover:border-gray-400 hover:text-white absolute inset-y-0 right-0 my-1.5 mr-1.5 flex w-10 items-center justify-center rounded border border-gray-700 font-sans text-sm font-medium text-gray-400;
 }
 
 .link_card {
-  @apply p-3 flex justify-start items-center flex-row bg-white border border-gray-200 gap-3 rounded-lg cursor-pointer;
+  @apply p-3 flex justify-start items-center flex-row bg-gray-800 border border-gray-700 gap-3 rounded-lg cursor-pointer;
 }
 
 .copy_btn {
@@ -108,9 +104,9 @@
 }
 
 .blue_gradient {
-  @apply font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  @apply font-black bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent;
 }
 
 .summary_box {
-  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4;
+  @apply rounded-xl border border-gray-700 bg-gray-800/50 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.1)] backdrop-blur p-4;
 }
